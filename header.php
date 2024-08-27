@@ -10,7 +10,7 @@
 </head>
 <body <?php body_class(); ?>>
 
-    <div class="over_page"></>
+    <div class="over_page"></div>
     
     <header class="header bg-main">
         <div class="container content_header">

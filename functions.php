@@ -21,10 +21,14 @@ add_action('after_setup_theme', 'meu_tema_setup');
 
 // Enfileira scripts e estilos
 function meu_tema_scripts() {
+    wp_enqueue_style('owl-carousel', get_template_directory_uri()."/assets/css/owl.carousel.min.css", [], '1.0', false);
+    wp_enqueue_style('owl-default', get_template_directory_uri()."/assets/css/owl.theme.default.min.css", [], '1.0', false);
     wp_enqueue_style('reset-css', get_template_directory_uri()."/assets/css/reset.css", [], '1.0', false);
     wp_enqueue_style('style', get_template_directory_uri()."/assets/css/style.css", [], '1.0', false);
 
     // Exemplo de como adicionar scripts JavaScript
+    wp_enqueue_script('m-jquery', get_template_directory_uri() . '/assets/js/jquery.min.js', [], '1.0', true);
+    wp_enqueue_script('owl-carousel-script', get_template_directory_uri() . '/assets/js/owl.carousel.min.js', [], '1.0', true);
     wp_enqueue_script('my-script', get_template_directory_uri() . '/assets/js/script.js', [], '1.0', true);
 }
 add_action('wp_enqueue_scripts', 'meu_tema_scripts');

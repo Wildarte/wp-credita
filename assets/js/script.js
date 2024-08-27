@@ -37,4 +37,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 
+
 });
+
+$(document).ready(function(){
+    
+    $('.gallery_img').owlCarousel({
+        loop:true,
+        margin:10,
+        nav:false,
+        responsive:{
+            0:{
+                items:2
+            },
+            600:{
+                items:3
+            },
+            1000:{
+                items:4
+            }
+        }
+    });
+
+    const palco_img = document.querySelector('.palco_img');
+    const gallery_img = document.querySelectorAll('.gallery_img img');
+
+    if(palco_img){
+        gallery_img.forEach((item, index) => {
+
+            item.addEventListener('click', () => {
+
+                let src_img = item.getAttribute('src');
+                palco_img.querySelector('img').setAttribute('src', src_img);
+
+            });
+
+        });
+    }
+
+})
