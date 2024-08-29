@@ -3,6 +3,7 @@
 ?>
 
 <main>
+
         <section class="hero bg-main">
 
             <div class="container d-flex content-min">
@@ -21,20 +22,47 @@
             </div>
 
             <div class="container content_form_search">
-                <form action="" class="form_search">
+                <form action="<?= home_url() ?>" class="form_search" method="get">
+                    <input type="hidden" name="s" value="null">
                     <div class="col_form_search">
                         <label for="">Categoria</label>
-                        <select name="" id="">
-                            <option value=""></option>
+                        <select name="categoria" id="">
+                        <option value="null">Selecione uma categoria</option>
+                        <?php
+                        // Recupera todas as categorias
+                        $categories = get_categories();
+
+                        // Loop através de cada categoria e cria uma opção no select
+                        foreach ($categories as $category) {
+                            echo '<option value="' . $category->term_id . '">' . $category->name . '</option>';
+                        }
+                        ?>
+                        </select>
+                    </div>
+                    <style>
+                        .select2-container .select2-selection--single{
+                            height: auto;
+                            padding: 8px;
+                        }
+                        .select2-container--default .select2-selection--single .select2-selection__arrow{
+                            top: 10px
+                        }
+                    </style>
+                    <div class="col_form_search">
+                        <label for="">Cidade</label>
+                        <select name="cidade" id="cidade">
+                            <option value="null">Selecione a cidade</option>
+                            <option value="Porto Alegre">Porto Alegre</option>
+                            <option value="Santiago">Santiago</option>
                         </select>
                     </div>
                     <div class="col_form_search">
-                        <label for="">Localização</label>
-                        <input type="text" name="" id="" placeholder="">
-                    </div>
-                    <div class="col_form_search">
-                        <label for="">Preço</label>
-                        <input type="text" name="" id="">
+                        <label for="">Tipo</label>
+                        <select name="tipo" id="">
+                            <option value="null">Seleciona uma opção</option>
+                            <option value="venda">Comprar</option>
+                            <option value="aluguel">Alugar</option>
+                        </select>
                     </div>
                     <div class="col_form_search d-flex">
                         <label for=""></label>

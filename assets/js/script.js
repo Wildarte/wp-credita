@@ -37,6 +37,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 
+    const btn_search = document.querySelector('.btn_search');
+    const over_search = document.querySelector('.over_search');
+    const btn_close_search = document.querySelector('.btn_close_search');
+
+    btn_search.addEventListener('click', () => {
+        over_search.classList.add('open_over_search')
+    });
+
+    btn_close_search.addEventListener('click', () => {
+        over_search.classList.remove('open_over_search')
+    });
+
 
 });
 

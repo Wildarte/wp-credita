@@ -1,7 +1,7 @@
         <footer class="footer">
 
         <div class="container content-min d-flex">
-            <div class="col_footer">
+            <div class="col_footer col_footer_logo">
                 <?php
                     // Exibe o logo se estiver definido no Customizer
                     if (function_exists('the_custom_logo') && has_custom_logo()) {
@@ -59,5 +59,12 @@
         </footer>
 
         <?php wp_footer(); ?>
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+        <script>
+            // In your Javascript (external .js resource or <script> tag)
+            $(document).ready(function() {
+                $('#cidade').select2();
+            });
+        </script>
     </body>
 </html>
