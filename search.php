@@ -8,7 +8,7 @@ $tipo = isset($_GET['tipo']) ? sanitize_text_field($_GET['tipo']) : "";
 
 <main>
     <section class="header_page" style="background-image: url(<?= get_the_post_thumbnail_url(null, 'large') ?>);">
-        <h2>Sua Busca por Imóveis Começa Aqui</h2>
+        <h2>Vamos encontrar seu próximo lar</h2>
     </section>
 
     <section class="hero">
@@ -79,7 +79,7 @@ $tipo = isset($_GET['tipo']) ? sanitize_text_field($_GET['tipo']) : "";
                     $args = array(
                         'cat' => $categoria,
                         'meta_query' => [
-                            'relation' => 'AND',
+                            'relation' => 'OR',
                             [
                                 'key' => 'cidade',
                                 'value' => $cidade,
@@ -107,7 +107,7 @@ $tipo = isset($_GET['tipo']) ? sanitize_text_field($_GET['tipo']) : "";
                 ?>
                     <div class="f-33">
                         <div class="card_imovel">
-                            <a href="">
+                            <a href="<?= get_permalink() ?>">
                                 <img src="https://template-kit1.evonicmedia.com/layout37/wp-content/uploads/2023/08/Property-Listed-111111-1.png" alt="">
 
                                 <div class="content_card_imovel">

@@ -52,3 +52,5 @@ function meu_tema_custom_admin_footer() {
     echo 'Desenvolvido por <a href="http://seudominio.com" target="_blank">Seu Nome</a>.';
 }
 add_filter('admin_footer_text', 'meu_tema_custom_admin_footer');
+
+require "admin/custom.php";

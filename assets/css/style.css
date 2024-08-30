@@ -705,6 +705,10 @@ footer.footer p{
         padding: 10px;
         margin-bottom: 15px;
     }
+    .header_mobile .custom-logo-link img{
+        height: auto;
+        width: 150px;
+    }
     .btn_close_menu{
         padding: 8px;
         border-radius: 2px;
