@@ -42,11 +42,27 @@ $tipo = isset($_GET['tipo']) ? sanitize_text_field($_GET['tipo']) : "";
                     </style>
                     <div class="col_form_search">
                         <label for="">Cidade</label>
-                        <select name="cidade" id="cidade">
-                            <option value="null">Selecione a cidade</option>
-                            <option value="Porto Alegre">Porto Alegre</option>
-                            <option value="Santiago">Santiago</option>
-                        </select>
+                        <?php
+                            global $wpdb;
+
+                            $meta_key = 'cidade';
+                            $results = $wpdb->get_col($wpdb->prepare("
+                                SELECT DISTINCT meta_value 
+                                FROM $wpdb->postmeta 
+                                WHERE meta_key = %s 
+                                ORDER BY meta_value ASC
+                            ", $meta_key));
+
+                            if ($results) {
+                                    echo '<select name="cidade" id="cidade">';
+                                    echo '<option value="">Selecione uma cidade</option>';
+                                    foreach ($results as $value) {
+                                        echo '<option value="' . esc_attr($value) . '">' . esc_html($value) . '</option>';
+                                    }
+                                    echo '</select>';
+                            }
+
+                        ?>
                     </div>
                     <div class="col_form_search">
                         <label for="">Tipo</label>
@@ -74,7 +90,12 @@ $tipo = isset($_GET['tipo']) ? sanitize_text_field($_GET['tipo']) : "";
                 </header>
 
                 <section class="d-flex">
+                
                 <?php
+
+                    $s = $_GET['s'];
+
+                    
 
                     $args = array(
                         'cat' => $categoria,
@@ -94,8 +115,6 @@ $tipo = isset($_GET['tipo']) ? sanitize_text_field($_GET['tipo']) : "";
                         ],
                         'posts_per_page' => -1
                     );
-
-                    
 
                     $query = new WP_Query($args);
 

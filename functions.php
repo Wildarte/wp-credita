@@ -9,6 +9,8 @@ function meu_tema_setup() {
     // Registra um menu de navegação
     register_nav_menus(array(
         'primary' => __('Primary Menu', 'meu-tema'),
+        'servicos' => __('Menu Serviços', 'menu-servicos'),
+        'menu-footer' => __('Menu Footer', 'menu-footer')
     ));
 
     // Adiciona suporte para o logotipo personalizado

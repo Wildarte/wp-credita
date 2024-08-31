@@ -614,6 +614,14 @@ footer.footer p{
 .col_footer_logo p{
     font-weight: 100!important;
 }
+.content_pagination{
+    padding: 20px;
+    display: flex;
+    justify-content: center
+}
+.content_pagination a{
+    color: var(--color-main);
+}
 
 
 @media(max-width: 992px){

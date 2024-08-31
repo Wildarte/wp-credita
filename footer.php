@@ -14,39 +14,43 @@
                     }
                 ?>
 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, eius nesciunt quidem consectetur dolorum cupiditate quo.</p>
+                <p><?= bloginfo('description') ?></p>
             </div>
             
             <div class="col_footer">
                 <h4>Serviços</h4>
 
-                <ul>
-                    <li><a href="">item</a></li>
-                    <li><a href="">item</a></li>
-                    <li><a href="">item</a></li>
-                    <li><a href="">item</a></li>
-                </ul>
+                <?php
+                    if (has_nav_menu('servicos')) {
+                        wp_nav_menu(array(
+                            'theme_location' => 'servicos',
+                            'container' => 'ul',
+                            'container_class' => ''
+                        ));
+                    }
+                ?>
+
             </div>
 
             <div class="col_footer">
                 <h4>Menu</h4>
 
-                <ul>
-                    <li><a href="">item</a></li>
-                    <li><a href="">item</a></li>
-                    <li><a href="">item</a></li>
-                    <li><a href="">item</a></li>
-                </ul>
+                <?php
+                    if (has_nav_menu('menu-footer')) {
+                        wp_nav_menu(array(
+                            'theme_location' => 'menu-footer',
+                            'container' => 'ul',
+                            'container_class' => ''
+                        ));
+                    }
+                ?>
             </div>
 
             <div class="col_footer">
                 <h4>Social</h4>
 
                 <ul>
-                    <li><a href="">item</a></li>
-                    <li><a href="">item</a></li>
-                    <li><a href="">item</a></li>
-                    <li><a href="">item</a></li>
+                    <li><a href=""><i class="bi bi-instagram"></i></a></li>
                 </ul>
             </div>
         </div>

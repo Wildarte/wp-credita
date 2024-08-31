@@ -8,11 +8,19 @@
 
             <div class="container d-flex content-min">
                 <div class="f-50 left_hero">
-                    <h2 class="title-main color-white">YOUR TRUSTED REAL ESTATE PARTNER</h2>
-                    <p class="text-default color-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore corrupti delectus possimus natus. Culpa autem, numquam repudiandae, in excepturi iste nemo praesentium accusantium enim quasi ex ut fugit non odit.</p>
+                    <h2 class="title-main color-white">SEU PARCEIRO IMOBILIÁRIO DE CONFIANÇA</h2>
+                    <p class="text-default color-white">Prezamos pela máxima transparência em nosso atendimento, intermediando na negociação com agilidade, flexibilidade e segurança jurídica.</p>
                     
                     <div class="d-flex">
-                        <a class="btn-default btn-hover-grow" href="">Entrar em Contato</a>
+                        <?php
+                            $phone_number = get_theme_mod('mytheme_phone_number');
+
+                            if (!empty($phone_number)) {
+                                //echo '<p>Telefone: <a href="tel:' . esc_attr($phone_number) . '">' . esc_html($phone_number) . '</a></p>';
+                            }
+                            
+                        ?>
+                        <a class="btn-default btn-hover-grow" href="https://wa.me/<?= esc_attr($phone_number) ?>?text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es">Entrar em Contato</a>
                     </div>
 
                 </div>
@@ -93,34 +101,34 @@
         <section class="section_imo">
 
             <div class="container content_imo d-flex">
-                <div class="f-33">
+                <div class="f-33 d-flex">
                     <div class="card">
                         <div class="icon_card">
                             <img src="<?= get_template_directory_uri() ?>/assets/img/home.png" alt="">
                         </div>
-                        <h3>Divulgar Imóvel</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto repudiandae at animi repellendus?</p>
+                        <h3>VENDER IMÓVEL</h3>
+                        <p>Você tem um imóvel e gostaria de receber orientação e intermediação para uma venda rápida e segura? Nós contamos com um time de especialistas nisso!</p>
                         <a href="">Saiba Mais</a>
                     </div>
                 </div>
-                <div class="f-33">
+                <div class="f-33 d-flex">
                     <div class="card">
                         <div class="icon_card">
                             <img src="<?= get_template_directory_uri() ?>/assets/img/home.png" alt="">
                         </div>
-                        <h3>Vender Imóvel</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto repudiandae at animi repellendus?</p>
-                        <a href="">Saiba Mais</a>
+                        <h3>ALUGAR IMÓVEL</h3>
+                        <p>Você tem um imóvel e gostaria de receber orientação e intermediação para uma locação rápida e segura? Deixe nosso time lhe ajudar!s</p>
+                        <a href="<?= home_url() ?>/imoveis">Saiba Mais</a>
                     </div>
                 </div>
-                <div class="f-33">
+                <div class="f-33 d-flex">
                     <div class="card">
                         <div class="icon_card">
                             <img src="<?= get_template_directory_uri() ?>/assets/img/home.png" alt="">
                         </div>
-                        <h3>Alugar Imóvel</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto repudiandae at animi repellendus?</p>
-                        <a href="">Saiba Mais</a>
+                        <h3>COMPRAR IMÓVEL</h3>
+                        <p>Você está a procura de um imóvel, e gostaria de um atendimento personalizado?</p>
+                        <a href="<?= home_url() ?>/imoveis">Saiba Mais</a>
                     </div>
                 </div>
             </div>
@@ -146,7 +154,7 @@
                                 $response_b->the_post();
 
                     ?>
-                        <div class="f-33">
+                        <div class="f-33 d-flex">
                             <div class="card_imovel">
                                 <a href="<?= get_the_permalink() ?>">
                                     <img src="<?= get_the_post_thumbnail_url(null, 'medium') ?>" alt="">
@@ -210,11 +218,13 @@
                 <div class="f-50 right_sec_about">
                     <h2>Sobre Nós</h2>
 
-                    <h3>Nossa Visão e Valores</h3>
+                    <h3>MISSÃO, VISÃO E VALORES</h3>
 
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat alias omnis harum ipsa itaque magnam veniam impedit odio vitae eligendi saepe similique, corporis eos fugit consequuntur delectus, obcaecati deleniti necessitatibus!</p>
+                    <p><strong>Missão:</strong> Realizar intermediações imobiliárias, em todo território gaúcho, com profissionalismo e sensibilidade, superando as expectativas dos clientes.</p>
 
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, error sed provident esse voluptas quae atque tempore voluptatum dolorum aspernatur! Odio perspiciatis ad asperiores sit esse recusandae placeat, nihil tempora nam nostrum illum repellendus amet repellat est impedit omnis eveniet.</p>
+                    <p><strong>Visão:</strong> Ser uma grande referência como imobiliária no Rio Grande do Sul.</p>
+
+                    <p><strong>Valores:</strong> Ética, responsabilidade e confiança.</p>
 
                     <div class="d-flex">
                         <a href="" class="btn-default-transparent btn-hover-main">Saiba Mais</a>
@@ -227,7 +237,7 @@
             <div class="container content-default">
                 <header class="head-default">
                     <h2 class="title-second">Últimas Novidades</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, molestias? Inventore, consequuntur.</p>
+                    <p></p>
                 </header>
 
                 <div class="d-flex">
@@ -275,6 +285,7 @@
             </div>
         </section>
 
+        <!-- 
         <section class="sec_depoimentos bg-gray">
             <div class="container d-flex content-default">
                 <div class="f-50 left_dep">
@@ -289,6 +300,7 @@
                 </div>
             </div>
         </section>
+         -->
 
     </main>
 

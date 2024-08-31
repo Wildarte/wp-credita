@@ -135,7 +135,7 @@
                             while($response_b->have_posts()):
                                 $response_b->the_post();
                     ?>
-                    <div class="f-33">
+                    <div class="f-33 d-flex">
                         <div class="card_imovel">
                             <a href="<?= get_permalink() ?>">
                                 <img src="<?= get_the_post_thumbnail_url(null, 'medium') ?>" alt="">
@@ -190,6 +190,7 @@
         </div>
 
     </section>
+    
 </main>
 
 <?php get_footer() ?>
